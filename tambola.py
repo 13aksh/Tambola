@@ -13,9 +13,6 @@ def creatematrix():
 # Initializing the resultant ticket array
 b = []
 
-# Base list from which five elements will be chosen at random,
-# and same will act as indexes in the ticket rows.
-base = [x for x in range(9)]
 
 new = []
 
@@ -26,10 +23,18 @@ n = int(raw_input())
 # Every element will become ticket after processing.
 b = [0 for _ in range(n)]
 
+
+#Final ticket
+c = [0 for _ in range(n)]
+
 # Looping for every random ticket.
 for j in range(n):
 	# Taking the fresh random matrix of 90 elements.
 	a = creatematrix()
+
+	# Base list from which five elements will be chosen at random,
+	# and same will act as indexes in the ticket rows.
+	base = [x for x in range(9)]
 
 	# Defining the ticket array for rows
 	aout = [ 0 for x in range(3)]
@@ -44,6 +49,7 @@ for j in range(n):
 		#container element
 		cont = -1
 		# Looping each item as index of the random matrix for selection of one number in a tens range.
+
 		for i in new:
 			# Contains the index of the row
 			cont = random.sample(range(len(a[i])),1)
@@ -60,11 +66,41 @@ for j in range(n):
 			
 			# Deleting the element so it is not repeated
 			del a[i][cont]
+		
+			if len(a[i])<9:
+				for g in range(len(base)):
+					if base[g] == i:
+						del base[g]
+						break
 		aout[k] = ain
 	#print aout
 	b[j] = aout
 
 for i in range(n):
+	c[i] = [[0 for _ in range(9)] for y in range(3)]
+	#print c[i]
 	for j in range(3):
-		print b[i][j]
+		#print b[i][j]
+		for k in b[i][j]:
+			if k<11:
+				c[i][j][0] = k
+			elif (k>10)and(k<21):
+				c[i][j][1] = k
+			elif (k>20)and(k<31):
+				c[i][j][2] = k
+			elif (k>30)and(k<41):
+				c[i][j][3] = k
+			elif (k>40)and(k<51):
+				c[i][j][4] = k
+			elif (k>50)and(k<61):
+				c[i][j][5] = k
+			elif (k>60)and(k<71):
+				c[i][j][6] = k
+			elif (k>70)and(k<81):
+				c[i][j][7] = k
+			elif (k>80)and(k<91):
+				c[i][j][8] = k
+for i in range(n):
+	for j in range(3):
+		print c[i][j]
 	print '\n'
