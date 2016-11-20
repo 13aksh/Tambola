@@ -47,8 +47,19 @@ def index(request):
 		aout = [ 0 for x in range(3)]
 		for k in range(3):
 			# Selecting five random numbers from base list, for indexes of rows.
-			print len(base)
-			new = random.sample(base,5)
+			
+			if k == 1:
+				temps = []
+				templ = []
+				for x in range(9):
+					if len(a[x]) == 10:
+						temps.append(x)
+					else:
+						templ.append(x)
+				new = random.sample(temps,4)
+				new += random.sample(templ,1)
+			else:
+				new = random.sample(base,5)
 
 			#print new
 			# Defining the ticket array for coloumns.
@@ -120,9 +131,9 @@ def index(request):
 			maamla += "<tr>"
 			for k in range(9):
 				if c[i][j][k]!=0:
-					maamla += "<td style='width: 60px; height:60px;'>"+str(c[i][j][k])+"</td>"
+					maamla += "<td style='width: 80px; height:80px;'>"+str(c[i][j][k])+"</td>"
 				else:
-					maamla += "<td style='width: 60px; height:60px;'></td>"
+					maamla += "<td style='width: 80px; height:80px;'></td>"
 			maamla += "</tr>"
 		maamla += "</table>"
 		maamla += "<br>"

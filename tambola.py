@@ -40,7 +40,18 @@ for j in range(n):
 	aout = [ 0 for x in range(3)]
 	for k in range(3):
 		# Selecting five random numbers from base list, for indexes of rows.
-		new = random.sample(base,5)
+		if k == 1:
+			temps = []
+			templ = []
+			for x in range(9):
+				if len(a[x]) == 10:
+					temps.append(x)
+				else:
+					templ.append(x)
+			new = random.sample(temps,4)
+			new += random.sample(templ,1)
+		else:
+			new = random.sample(base,5)
 
 		#print new
 		# Defining the ticket array for coloumns.
