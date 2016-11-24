@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.utils.encoding import smart_str, smart_unicode
+from django.utils.encoding import smart_str
 from django.shortcuts import render
 from django.http import HttpResponse
 import random
@@ -246,5 +246,15 @@ def tickets(request, noticks):
 			maamla += "</tr>"
 		maamla += "</table>"
 		maamla += "<br>"
+	maamla += "<table border ='1' style='border-collapse: collapse'>"
+	a = creatematrix()
+	for i in range(9):
+		maamla += "<tr>"
+		for j in range(10):
+			maamla += "<td style='width: 50px; height:50px;'>"+smart_str(dic[a[i][j]])+"</td>"
+		maamla += "</tr>"
+	maamla += "</table>"
+	maamla += "<br>"		
 	maamla += "</body></html>"
+
 	return HttpResponse(maamla)
