@@ -254,6 +254,7 @@ def tickets(request, noticks):
 			maamla += "<td style='width: 50px; height:50px;'>"+smart_str(dic[a[i][j]])+"</td>"
 		maamla += "</tr>"
 	maamla += "</table>"
+	maamla += "<img src='one-and-only-wolgan-valley-720x450-wedding2.jpg'>"
 	maamla += "<br>"		
 	maamla += "</body></html>"
 
